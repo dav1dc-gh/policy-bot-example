@@ -1,0 +1,24 @@
+# An Example of 2 teams where the approval of both is required to merge the PR
+#
+
+policy:
+  approval:
+  - and:
+    - devteam
+    - secteam
+
+approval_rules:
+
+- name: devteam
+  description: Dev Team memebers that can approve
+  requires:
+    count: 2
+    teams: ["dav1dc-gh/csm"]
+
+- name: secteam
+  description: Security Team members that can approve
+  requires:
+    count: 3
+    teams: ["dav1dc-gh/csa"]
+
+# END
